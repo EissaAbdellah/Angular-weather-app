@@ -1,0 +1,200 @@
+
+<div class="search">
+    <form #form="ngForm" (submit)="search()">
+      <input [(ngModel)]="cityName" type="text" name="city" placeholder="search city">
+    </form>
+  </div>
+  
+  <div class="container" *ngIf="weatherData">
+    <div class="tmp-icon">
+      
+        <img src={{imageUrl}} alt="Icon Image">
+
+      </div>
+    <div class="upper-data">
+       <!-- <img *ngIf="(weatherData.main.temp) >20" src="../assets/h.jpg" alt="hot weather-data"> 
+      <img *ngIf="(weatherData.main.temp) <=20" src="../assets/c.jpg" alt="cold weather-data">
+   -->
+  
+      <div class="weather-data">
+        
+        <div class="location">{{weatherData.name}}</div>
+        
+        <div class="temprarture">{{weatherData.main.temp-273 | number:'1.0-0'}}°C</div>
+        <br>
+        <div class="location">{{weatherData.weather[0].description}}</div>
+
+      </div>
+  
+  
+    </div>
+  
+    <div class="lower-data">
+      <div class="more-info-label">
+        More Information
+      </div>
+      <div class="more-info-container">
+  
+        <div class="info-block">
+          <div class="info-block-label">
+            
+         <span>Min</span>
+         <img src="../assets//min.png" alt="">
+          </div>
+          <div class="info-block-value">
+            {{weatherData.main.temp_min-273 | number:'1.0-0'}}°C
+          </div>
+        </div>
+
+
+
+        <div class="info-block">
+            <div class="info-block-label">
+              
+           <span>Max</span>
+           <img src="../assets//max.png" alt="">
+            </div>
+            <div class="info-block-value">
+              {{weatherData.main.temp_max-273 | number:'1.0-0'}}°C
+            </div>
+  
+          </div>
+
+
+          <div class="info-block">
+            <div class="info-block-label">
+              
+           <span>Country</span>
+           <img src="../assets//country.png" alt="">
+
+            </div>
+            <div class="info-block-value">
+              {{weatherData.sys.country}}
+            </div>
+  
+          </div>
+
+  
+        <div class="info-block">
+          <div class="info-block-label">
+            
+            <span>Pressure</span>
+            <img src="../assets//resilience.png" alt="">
+          </div>
+          <div class="info-block-value">
+              {{weatherData.main.pressure}} (N/m²)
+
+          </div>
+          
+
+          
+          
+        </div>
+  
+        <div class="info-block">
+          <div class="info-block-label">
+           
+            <span>Humadity</span>
+         <img src="../assets//humidity.png" alt="">
+
+          </div>
+          <div class="info-block-value">
+            {{weatherData.main.humidity}} %
+          </div>
+        </div>
+  
+  
+        <div class="info-block">
+          <div class="info-block-label">
+            
+            <span>Wind</span>
+         <img src="../assets//wind.png" alt="">
+
+          </div>
+          <div class="info-block-value">
+            {{weatherData.wind.speed}} km/h
+          </div>
+        </div>
+  
+  
+      </div>
+    </div>
+  
+  </div> 
+
+  
+  
+  <!-- <div class="container" *ngIf="!weatherData">
+  
+    <div class="upper-data">
+      
+  
+  
+      <div class="weather-data">
+        <div class="location">London</div>
+        <div class="temprarture">{{27 | number:'1.0-0'}}°C</div>
+        <div class="temp-icon">
+          
+        </div>
+      </div>
+  
+  
+    </div>
+  
+    <div class="lower-data">
+      <div class="more-info-label">
+        More Information
+      </div>
+      <div class="more-info-container">
+  
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="../assets//min.png" alt="">
+            <span>Min</span>
+          </div>
+          <div class="info-block-value">
+            {{24 | number:'1.0-0'}}°C
+          </div>
+        </div>
+  
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="../assets//max.png" alt="">
+            <span>Max</span>
+          </div>
+          <div class="info-block-value">
+            {{29 | number:'1.0-0'}}°C
+          </div>
+        </div>
+  
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="../assets/humidity.png" alt="">
+            <span>Humadity</span>
+          </div>
+          <div class="info-block-value">
+            {{32}} %
+          </div>
+        </div>
+  
+  
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="../assets//wind.png" alt="">
+            <span>Wind</span>
+          </div>
+          <div class="info-block-value">
+            {{15}} km/h
+          </div>
+        </div>
+  
+  
+      </div>
+    </div>
+  
+  </div> -->
+  
+  
+  
+  
+<router-outlet></router-outlet>
